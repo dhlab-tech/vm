@@ -1,0 +1,4 @@
+- name: ensure bird config
+  template:
+    src: "bird.conf.j2"
+    dest: "{{ bird_conf }}"

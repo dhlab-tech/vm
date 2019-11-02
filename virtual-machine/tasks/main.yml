@@ -1,0 +1,29 @@
+---
+- name: Download image
+  import_tasks: download.yml
+  tags: ["download_image"]
+
+- name: Сonvert image
+  import_tasks: convert.yml
+  tags: ['convert_image']
+
+- name: Resize image
+  import_tasks: resize.yml
+  tags: ['resize_image']
+
+- name: Make config.iso
+  import_tasks: config.yml
+  tags: ['make_config_iso']
+
+- name: Define VM
+  import_tasks: define.yml
+  tags: ['define_vm']
+
+- name: Add VM to network
+  import_tasks: network.yml
+  tags: ['add_vm_network']
+
+- name: Start VM
+  import_tasks: start.yml
+  tags: ['start_vm']
+

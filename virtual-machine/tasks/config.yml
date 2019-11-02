@@ -1,0 +1,4 @@
+- name: make config.iso
+  command: "cloud-localds {{ vm_config_iso }} {{ vm_config_yml }}"
+  args:
+    chdir: "{{ libvirt_images_path }}"

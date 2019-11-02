@@ -1,0 +1,29 @@
+---
+bird_conf: "/etc/bird/bird.conf"
+host_ip: "192.168.122.1"
+host_as: "64000"
+bgp_servers:
+  - name: etcd1
+    ip: "192.168.122.111"
+    as: "64001"
+  - name: etcd2
+    ip: "192.168.122.112"
+    as: "64001"
+  - name: etcd3
+    ip: "192.168.122.113"
+    as: "64001"
+  - name: master1
+    ip: "192.168.122.121"
+    as: "64002"
+  - name: master2
+    ip: "192.168.122.122"
+    as: "64002"
+  - name: master3
+    ip: "192.168.122.123"
+    as: "64002"
+  - name: node1
+    ip: "192.168.122.131"
+    as: "64003"
+  - name: node2
+    ip: "192.168.122.132"
+    as: "64003"

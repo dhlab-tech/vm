@@ -1,0 +1,16 @@
+---
+#libvirt_image_url: "https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img"
+libvirt_image_url: "http://dl-cdn.alpinelinux.org/alpine/v3.10/releases/x86_64/alpine-standard-3.10.3-x86_64.iso"
+libvirt_image_distibution: "{{ libvirt_image_url | basename }}"
+libvirt_images_boot: "/var/lib/libvirt/boot"
+libvirt_images_path: "/var/lib/libvirt/images"
+libvirt_image_name: "image_name.img"
+libvirt_image_size: "10G"
+libvirt_network: "default"
+vm_config_iso: "config.iso"
+vm_config_yml: "config.yml"
+vm_name: "vm_name"
+vm_memory_kib: 1145728
+vm_cpu_count: 1
+vm_mac: "52:54:00:4a:1b:15"
+vm_ip: "192.168.122.135"
