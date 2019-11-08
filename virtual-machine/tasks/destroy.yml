@@ -23,5 +23,5 @@
     path: "{{ libvirt_images_path }}/{{ libvirt_image_name }}"
     state: absent
 
-- name: Deallocate IP address
-  command: "/usr/bin/virsh net-update {{ libvirt_network }} delete ip-dhcp-host \"<host mac='{{ vm_mac }}' ip='{{ vm_ip }}'/>\" --config --live --parent-index 0 "
+#- name: Deallocate IP address
+#  command: "/usr/bin/virsh net-update {{ libvirt_network }} delete ip-dhcp-host \"<host mac='{{ vm_mac }}' ip='{{ vm_ip }}'/>\" --config --live --parent-index 0 "
