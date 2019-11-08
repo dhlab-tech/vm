@@ -1,7 +1,7 @@
 - name: check if image downloaded
   stat:
-    path: {{ libvirt_images_boot }}/{{ libvirt_image_distibution }}
-    register: image_downloaded
+    path: "{{ libvirt_images_boot }}/{{ libvirt_image_distibution }}"
+  register: image_downloaded
 
 - name: download image
   get_url:

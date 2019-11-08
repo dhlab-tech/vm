@@ -1,0 +1,11 @@
+- name: ensure image path exists
+  file:
+    path: "{{ libvirt_images_path }}"
+    state: directory
+    recurse: yes
+
+- name: ensure boot path exists
+  file:
+    path: "{{ libvirt_images_boot }}"
+    state: directory
+    recurse: yes

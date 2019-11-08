@@ -4,7 +4,7 @@ users:
   - name: deployer
     groups: sudo
     lock_passwd: false
-    passwd: $6$IYRqBN7d0dpkX2BM$fuVL.a6smKmrwJpWDQn5F5QIbjy2oDQMaDvDIWjNDBHynmJSTsrROxHi4DwmwYuqW1qfp/EZJbFXkOpsnRhXP.
+    passwd: {{ vm_pass }}
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:

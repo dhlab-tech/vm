@@ -2,25 +2,27 @@
 - name: Update
   apt:
     update_cache: yes
+  tags: ["ensure_system", "system_update"]
 
 - name: Install required packages
   apt:
-    name: "{{ item }}"
-  with_items:
-    - "ubuntu-vm-builder"
-    - "qemu-kvm"
-    - "libvirt-bin"
-    - "ubuntu-vm-builder"
-    - "bridge-utils"
-    - "virtinst"
-    - "libvirt-dev"
-    - "libvirt-bin"
-    - "cloud-image-utils"
-    - "python-pip"
+    name:
+      - "ubuntu-vm-builder"
+      - "qemu-kvm"
+      - "libvirt-bin"
+      - "ubuntu-vm-builder"
+      - "bridge-utils"
+      - "virtinst"
+      - "libvirt-dev"
+      - "libvirt-bin"
+      - "cloud-image-utils"
+      - "python-pip"
+      - "python3-pip"
+  tags: ["ensure_system", "system_install_packages"]
 
 - name: Install required pip packages
   pip:
-    name: "{{ item }}"
-  with_items:
-    - "lxml"
-    - "libvirt-python"
+    name:
+      - "lxml"
+      - "libvirt-python"
+  tags: ["ensure_system", "system_install_pip_packages"]

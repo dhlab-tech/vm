@@ -1,0 +1,31 @@
+- name: Ensure paths
+  import_tasks: ensure_paths.yml
+  tags: ["ensure_vm", "ensure_paths"]
+
+- name: Download image
+  import_tasks: download.yml
+  tags: ["ensure_vm", "download_image"]
+
+- name: Сonvert image
+  import_tasks: convert.yml
+  tags: ["ensure_vm", "convert_image"]
+
+- name: Resize image
+  import_tasks: resize.yml
+  tags: ["ensure_vm", "resize_image"]
+
+- name: Make config.iso
+  import_tasks: config.yml
+  tags: ["ensure_vm", "make_config_iso"]
+
+- name: Define VM
+  import_tasks: define.yml
+  tags: ["ensure_vm", "define_vm"]
+
+- name: Add VM to network
+  import_tasks: network.yml
+  tags: ["ensure_vm", "add_vm_network"]
+
+- name: Start VM
+  import_tasks: start.yml
+  tags: ["ensure_vm", "start_vm"]

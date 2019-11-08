@@ -1,0 +1,20 @@
+---
+- name: Ensure network
+  import_tasks: ensure_network.yml
+  tags: ["ensure_network"]
+
+- name: Install bird
+  import_tasks: install_bird.yml
+  tags: ["ensure_tor", "install_bird"]
+
+- name: Ensure bird config
+  import_tasks: ensure_config.yml
+  tags: ["ensure_tor", "ensure_bird_config"]
+
+- name: Restart service bird
+  import_tasks: restart_bird.yml
+  tags: ["ensure_tor", "ensure_bird_config"]
+
+- name: Destroy network
+  import_tasks: destroy_network.yml
+  tags: ["destroy_network"]

@@ -1,29 +1,27 @@
 ---
-- name: Download image
-  import_tasks: download.yml
-  tags: ["download_image"]
+- name: List all VMs
+  virt:
+    command: info
+  register: all_vms
+  tags: ["ensure_vm", "destroy_vm"]
 
-- name: Сonvert image
-  import_tasks: convert.yml
-  tags: ['convert_image']
+- set_fact:
+    vm: "{{ all_vms[vm_name] | default ('undefined') }}"
+  tags: ["ensure_vm", "destroy_vm"]
 
-- name: Resize image
-  import_tasks: resize.yml
-  tags: ['resize_image']
+- name: Start VM if defined
+  virt:
+    name: "{{ vm_name }}"
+    state: running
+  when: vm is defined and vm != "undefined" and vm.state != "running"
+  tags: ["ensure_vm"]
 
-- name: Make config.iso
-  import_tasks: config.yml
-  tags: ['make_config_iso']
+- name: Ensure VM if not defined
+  import_tasks: ensure_vm.yml
+  when: vm is not defined or vm == "undefined"
+  tags: ["ensure_vm"]
 
-- name: Define VM
-  import_tasks: define.yml
-  tags: ['define_vm']
-
-- name: Add VM to network
-  import_tasks: network.yml
-  tags: ['add_vm_network']
-
-- name: Start VM
-  import_tasks: start.yml
-  tags: ['start_vm']
-
+- name: destroy VM if defined
+  import_tasks: destroy.yml
+  when: vm is defined and vm != "undefined"
+  tags: ["destroy_vm"]

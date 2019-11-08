@@ -1,0 +1,11 @@
+- virt_net:
+    command: facts
+
+- set_fact:
+    dn: "{{ ansible_libvirt_networks[default_network] | default ('undefined') }}"
+
+- name: destroy network
+  virt_net:
+    name: "{{ default_network }}"
+    command: "destroy"
+  when: dn is defined and dn != "undefined"
