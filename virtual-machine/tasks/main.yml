@@ -21,6 +21,21 @@
   when: vm is not defined or vm == "undefined"
   tags: ["ensure_vm"]
 
+- name: Stop VM
+  import_tasks: stop.yml
+  tags: ["stop_vm"]
+
+- name: Start VM
+  import_tasks: start.yml
+  tags: ["start_vm"]
+
+- name: Destroy VM
+  virt:
+    name: "{{ vm_name }}"
+    command: "destroy"
+  when: vm is defined and vm != "undefined" and vm.state == "running"
+  tags: ["destroy_vm"]
+
 - name: destroy VM if defined
   import_tasks: destroy.yml
   when: vm is defined and vm != "undefined"

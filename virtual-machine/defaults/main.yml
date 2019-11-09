@@ -12,7 +12,8 @@ vm_name: "vm_name"
 vm_memory_kib: 1145728
 vm_cpu_count: 1
 vm_mac: "52:54:00:4a:1b:15"
-vm_ip: "192.168.122.135"
+vm_ip: "10.10.2.135"
 ssh_path: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 vm_name_image: "{{ libvirt_images_path }}/{{ libvirt_image_name }}"
 vm_pass: $6$zGSbftNFQvSuEW/W$bErSN2PieHBZCM2zmGDUMR9YWUy19lOPU6DvmJqJiyYTMg2B0LRttjsy/.K/nCXD96eStzdJo83slNnq.h3X11
+default_network_bridge: "virbr0"

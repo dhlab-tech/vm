@@ -9,3 +9,9 @@
     name: "{{ default_network }}"
     command: "destroy"
   when: dn is defined and dn != "undefined"
+
+- name: undefine network
+  virt_net:
+    name: "{{ default_network }}"
+    command: "undefine"
+  when: dn is defined and dn != "undefined"

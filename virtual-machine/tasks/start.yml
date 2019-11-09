@@ -1,4 +1,4 @@
 - name: start VM
   virt:
     name: "{{ vm_name }}"
-    command: "start"
+    state: "running"
