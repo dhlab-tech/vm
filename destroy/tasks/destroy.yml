@@ -1,0 +1,22 @@
+- name: undefine VM
+  virt:
+    name: "{{ vm_destroy_name }}"
+    command: "undefine"
+
+- name: clean config.yml
+  file:
+    path: "{{ vm_destroy_libvirt_images_path }}/{{ vm_destroy_config_yml }}"
+    state: absent
+
+- name: clean config.iso
+  file:
+    path: "{{ vm_destroy_libvirt_images_path }}/{{ vm_destroy_config_iso }}"
+    state: absent
+
+- name: clean image
+  file:
+    path: "{{ vm_destroy_libvirt_images_path }}/{{ vm_destroy_libvirt_image_name }}"
+    state: absent
+
+#- name: Deallocate IP address
+#  command: "/usr/bin/virsh net-update {{ vm_destroy_libvirt_network }} delete ip-dhcp-host \"<host mac='{{ vm_destroy_mac }}' ip='{{ vm_destroy_ip }}'/>\" --config --live --parent-index 0 "

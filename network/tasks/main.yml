@@ -1,8 +1,0 @@
----
-- name: Ensure network
-  import_tasks: ensure_network.yml
-  tags: ["ensure_network"]
-
-- name: Destroy network
-  import_tasks: destroy_network.yml
-  tags: ["destroy_network"]

@@ -1,0 +1,10 @@
+<network>
+  <name>{{ vm_network_create_default_network }}</name>
+  <bridge name="{{ vm_network_create_default_network_bridge }}"/>
+  <forward mode="nat"/>
+  <ip address="{{ vm_network_create_default_network_ip }}" netmask="{{ vm_network_create_default_network_mask }}">
+    <dhcp>
+      <range start="{{ vm_network_create_default_network_start }}" end="{{ vm_network_create_default_network_end }}"/>
+    </dhcp>
+  </ip>
+</network>

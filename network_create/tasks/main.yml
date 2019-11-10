@@ -1,0 +1,27 @@
+- virt_net:
+    command: facts
+
+- set_fact:
+    dn: "{{ ansible_libvirt_networks[vm_network_create_default_network] | default ('undefined') }}"
+
+- name: define new network
+  virt_net:
+    name: "{{ vm_network_create_default_network }}"
+    command: "define"
+    xml: '{{ lookup("template", "default_network.xml.j2") }}'
+  when: dn is not defined or dn == "undefined"
+
+- virt_net:
+    command: facts
+
+- set_fact:
+    dn: "{{ ansible_libvirt_networks[vm_network_create_default_network] }}"
+
+- virt_net:
+    command: create
+    name: "{{ vm_network_create_default_network }}"
+  when: dn.state != "active"
+
+- virt_net:
+    autostart: yes
+    name: "{{ vm_network_create_default_network }}"

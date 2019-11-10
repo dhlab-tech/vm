@@ -1,0 +1,5 @@
+- name: convert image
+  command: "qemu-img convert -O qcow2 {{ vm_create_libvirt_images_boot }}/{{ vm_create_libvirt_image_distibution }} {{ vm_create_libvirt_image_name }}"
+  args:
+    chdir: "{{ vm_create_libvirt_images_path }}"
+    creates: "{{ vm_create_libvirt_image_name }}"

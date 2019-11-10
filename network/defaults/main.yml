@@ -1,7 +1,0 @@
----
-default_network: "default"
-default_network_ip: "10.10.1.1"
-default_network_mask: "255.255.255.0"
-default_network_start: "10.10.1.2"
-default_network_end: "10.10.1.254"
-default_network_bridge: "virbr0"

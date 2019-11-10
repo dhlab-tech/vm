@@ -2,7 +2,6 @@
 - name: Update
   apt:
     update_cache: yes
-  tags: ["ensure_system", "system_update"]
 
 - name: Install required packages
   apt:
@@ -18,11 +17,9 @@
       - "cloud-image-utils"
       - "python-pip"
       - "python3-pip"
-  tags: ["ensure_system", "system_install_packages"]
 
 - name: Install required pip packages
   pip:
     name:
       - "lxml"
       - "libvirt-python"
-  tags: ["ensure_system", "system_install_pip_packages"]

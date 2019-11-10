@@ -1,0 +1,6 @@
+---
+vm_destroy_libvirt_images_path: "/var/lib/libvirt/images"
+vm_destroy_libvirt_image_name: "image_name.img"
+vm_destroy_config_iso: "config.iso"
+vm_destroy_config_yml: "config.yml"
+vm_destroy_name: "vm_destroy_name"
