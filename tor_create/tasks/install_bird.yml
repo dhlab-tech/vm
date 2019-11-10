@@ -1,0 +1,5 @@
+---
+- name: install bird
+  apt:
+    name: bird
+    force_apt_get: yes

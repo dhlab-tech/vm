@@ -1,0 +1,7 @@
+---
+vm_network_create_default_network: "default"
+vm_network_create_default_network_ip: "10.10.1.1"
+vm_network_create_default_network_mask: "255.255.255.0"
+vm_network_create_default_network_start: "10.10.1.2"
+vm_network_create_default_network_end: "10.10.1.254"
+vm_network_create_default_network_bridge: "virbr0"

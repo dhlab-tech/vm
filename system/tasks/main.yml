@@ -1,0 +1,25 @@
+---
+- name: Update
+  apt:
+    update_cache: yes
+
+- name: Install required packages
+  apt:
+    name:
+      - "ubuntu-vm-builder"
+      - "qemu-kvm"
+      - "libvirt-bin"
+      - "ubuntu-vm-builder"
+      - "bridge-utils"
+      - "virtinst"
+      - "libvirt-dev"
+      - "libvirt-bin"
+      - "cloud-image-utils"
+      - "python-pip"
+      - "python3-pip"
+
+- name: Install required pip packages
+  pip:
+    name:
+      - "lxml"
+      - "libvirt-python"

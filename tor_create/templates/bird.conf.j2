@@ -1,0 +1,23 @@
+protocol kernel {
+	scan time 60;
+	import all;
+	export all;
+}
+
+protocol device {
+	scan time 60;
+}
+
+protocol direct {
+	export all;
+}
+
+{% for item in bgp_servers %}
+protocol bgp {{ item.name }} {
+    local {{ item.host_ip }} as {{ host_as }};
+
+    import all;
+    export all;
+    neighbor {{ item.ip }} as {{ item.as }};
+}
+{% endfor %}

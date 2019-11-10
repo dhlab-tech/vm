@@ -1,0 +1,6 @@
+- name: add VM to network
+  virt_net:
+    name: "{{ vm_create_libvirt_network }}"
+    command: "modify"
+    xml: "<host mac='{{ vm_create_mac }}' ip='{{ vm_create_ip }}'/>"
+    autostart: yes

@@ -1,0 +1,11 @@
+- name: check if image downloaded
+  stat:
+    path: "{{ vm_create_libvirt_images_boot }}/{{ vm_create_libvirt_image_distibution }}"
+  register: image_downloaded
+
+- name: download image
+  get_url:
+    url: "{{ vm_create_libvirt_image_url }}"
+    dest: "{{ vm_create_libvirt_images_boot }}/{{ vm_create_libvirt_image_distibution }}"
+    mode: '0777'
+  when: not image_downloaded.stat.exists

@@ -1,0 +1,4 @@
+- name: resize image
+  command: "qemu-img resize {{ vm_create_libvirt_image_name }} {{ vm_create_libvirt_image_size }}"
+  args:
+    chdir: "{{ vm_create_libvirt_images_path }}"

@@ -1,0 +1,23 @@
+- name: Ensure paths
+  import_tasks: ensure_paths.yml
+
+- name: Download image
+  import_tasks: download.yml
+
+- name: Сonvert image
+  import_tasks: convert.yml
+
+- name: Resize image
+  import_tasks: resize.yml
+
+- name: Make config.iso
+  import_tasks: config.yml
+
+- name: Define VM
+  import_tasks: define.yml
+
+- name: Add VM to network
+  import_tasks: network.yml
+
+- name: Start VM
+  import_tasks: start.yml

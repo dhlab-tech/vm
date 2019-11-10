@@ -1,0 +1,4 @@
+- name: remove bird
+  apt:
+    name: bird
+    state: absent

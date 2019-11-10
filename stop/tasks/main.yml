@@ -1,0 +1,12 @@
+---
+- name: List all VMs
+  virt:
+    command: info
+  register: all_vms
+
+- set_fact:
+    vm: "{{ all_vms[vm_stop_name] | default ('undefined') }}"
+
+- name: Stop VM if running
+  import_tasks: stop.yml
+  when: vm is defined and vm != "undefined" and vm.state == "running"

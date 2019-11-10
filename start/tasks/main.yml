@@ -1,0 +1,12 @@
+---
+- name: List all VMs
+  virt:
+    command: info
+  register: all_vms
+
+- set_fact:
+    vm: "{{ all_vms[vm_start_name] | default ('undefined') }}"
+
+- name: Start VM if defined
+  import_tasks: start.yml
+  when: vm is defined or vm != "undefined" and vm.state != "running"

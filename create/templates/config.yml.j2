@@ -1,0 +1,12 @@
+#cloud-config
+package_upgrade: true
+hostname: {{ vm_create_hostname }}
+users:
+  - name: deployer
+    groups: sudo
+    lock_passwd: false
+    passwd: {{ vm_create_pass }}
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+        - {{ vm_create_ssh_path }}
