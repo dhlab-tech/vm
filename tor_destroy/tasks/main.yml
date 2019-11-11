@@ -1,4 +1,32 @@
-- name: remove bird
+- name: register bird status
+  command: systemctl status bird
+  register: bird_status
+  ignore_errors: True
+- name: stop and disable service bird
+  systemd:
+    name: bird
+    state: stopped
+    enabled: no
+  when: bird_status.rc != 4
+- name: reload systemd daemon
+  systemd:
+    name: bird
+    daemon_reload: yes
+  when: bird_status.rc != 4
+- name: remove failed
+  command: systemctl reset-failed
+- name: remove bird package
   apt:
     name: bird
     state: absent
+  when: bird_status.rc != 4
+- name: remove service files
+  file:
+    path: /etc/systemd/system/bird6.service
+    state: absent
+  when: bird_status.rc != 4
+- name: remove service files
+  file:
+    path: /etc/systemd/system/bird.service
+    state: absent
+  when: bird_status.rc != 4
