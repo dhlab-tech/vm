@@ -18,6 +18,3 @@
 
 - name: Add VM to network
   import_tasks: network.yml
-
-- name: Start VM
-  import_tasks: start.yml

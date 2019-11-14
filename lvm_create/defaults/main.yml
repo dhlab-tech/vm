@@ -1,0 +1,4 @@
+vm_lvm_create_disk_name: "cloud_agent_lvm_disk.img"
+vm_lvm_create_disk_size: "20G"
+vm_lvm_create_libvirt_images_path: "/var/lib/libvirt/images"
+vm_lvm_create_name: "{{ omit }}"

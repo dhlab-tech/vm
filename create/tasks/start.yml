@@ -1,4 +1,0 @@
-- name: start VM
-  virt:
-    name: "{{ vm_create_name }}"
-    state: "running"
