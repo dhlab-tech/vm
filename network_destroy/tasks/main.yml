@@ -8,6 +8,7 @@
   virt_net:
     name: "{{ vm_network_destroy_default_network }}"
     command: "destroy"
+  ignore_errors: yes
   when: dn is defined and dn != "undefined"
 
 - name: undefine network
