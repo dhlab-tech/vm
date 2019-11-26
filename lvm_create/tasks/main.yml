@@ -1,8 +1,3 @@
-#- name: Remove old lvm disk
-#  file:
-#    state: absent
-#    path: "{{ vm_lvm_create_libvirt_images_path }}/{{ vm_lvm_create_disk_name }}"
-
 - name: Make lvm disk
   command: "qemu-img create -f raw {{ vm_lvm_create_libvirt_images_path }}/{{ vm_lvm_create_disk_name }} {{ vm_lvm_create_disk_size }}"
 

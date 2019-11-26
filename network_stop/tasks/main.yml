@@ -1,0 +1,3 @@
+- virt_net:
+    command: stop
+    name: "{{ vm_network_stop_default_network }}"
