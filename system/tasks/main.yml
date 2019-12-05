@@ -9,7 +9,6 @@
       - "ubuntu-vm-builder"
       - "qemu-kvm"
       - "libvirt-bin"
-      - "ubuntu-vm-builder"
       - "bridge-utils"
       - "virtinst"
       - "libvirt-dev"
@@ -17,6 +16,18 @@
       - "cloud-image-utils"
       - "python-pip"
       - "python3-pip"
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version|int == 18
+
+- name: Install required packages
+  apt:
+    name:
+      - "qemu-kvm"
+      - "libvirt-clients"
+      - "libvirt-daemon-system"
+      - "cloud-image-utils"
+      - "python-pip"
+      - "python3-pip"
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version|int > 18
 
 - name: Install required pip packages
   pip:
