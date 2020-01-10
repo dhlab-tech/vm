@@ -1,0 +1,3 @@
+- name: reboot Vm
+  shell: nohup bash -c «reboot» &
+  ignore_errors: true

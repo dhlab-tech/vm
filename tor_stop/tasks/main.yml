@@ -1,9 +1,4 @@
-- name: register bird status
-  command: systemctl status bird
-  register: bird_status
-  ignore_errors: True
-- name: stop and disable service bird
-  systemd:
+- name: restart service bird
+  service:
     name: bird
     state: stopped
-  when: bird_status.rc != 4

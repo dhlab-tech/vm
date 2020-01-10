@@ -1,3 +1,11 @@
 - virt_net:
-    command: start
+    command: facts
+
+- set_fact:
+    dn: "{{ ansible_libvirt_networks[vm_network_start_default_network] | default ('undefined') }}"
+
+- name: start network
+  virt_net:
     name: "{{ vm_network_start_default_network }}"
+    command: "start"
+  when: dn is defined and dn != "undefined" and dn.state != "active"

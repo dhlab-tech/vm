@@ -1,2 +1,5 @@
 ---
-vm_start_name: "vm_start_name"
+vm_start_name: "{{ omit }}"
+vm_start_mac: "{{ omit }}"
+vm_start_ip: "{{ omit }}"
+vm_start_libvirt_network: "default"

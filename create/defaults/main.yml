@@ -1,23 +1,20 @@
 ---
-vm_create_libvirt_image_url: "https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img"
+vm_create_name: "{{ omit }}"
+vm_create_libvirt_image_url: "https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-disk1.img"
 vm_create_libvirt_image_distibution: "{{ vm_create_libvirt_image_url | basename }}"
 vm_create_libvirt_images_boot: "/var/lib/libvirt/boot"
 vm_create_libvirt_images_path: "/var/lib/libvirt/images"
-
-vm_create_name: "etcdN"
 vm_create_libvirt_image_name: "{{ vm_create_name }}.img"
-vm_create_config_iso: "{{ vm_create_name }}.iso"
-vm_create_config_yml: "{{ vm_create_name }}.yml"
-vm_create_name_image: "{{ vm_create_libvirt_images_path }}/{{ vm_create_libvirt_image_name }}"
-
-vm_create_hostname: "vm_create_host_name"
-
 vm_create_libvirt_image_size: "10G"
 vm_create_libvirt_network: "default"
+vm_create_config_iso: "{{ vm_create_name }}.iso"
+vm_create_config_yml: "{{ vm_create_name }}.yml"
 vm_create_memory_kib: 1145728
 vm_create_cpu_count: 1
 vm_create_mac: "52:54:00:4a:1b:15"
-vm_create_ip: "10.10.2.135"
+vm_create_ip: "{{ omit }}"
 vm_create_ssh_path: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+vm_create_name_image: "{{ vm_create_libvirt_images_path }}/{{ vm_create_libvirt_image_name }}"
 vm_create_pass: $6$zGSbftNFQvSuEW/W$bErSN2PieHBZCM2zmGDUMR9YWUy19lOPU6DvmJqJiyYTMg2B0LRttjsy/.K/nCXD96eStzdJo83slNnq.h3X11 #12345678
 vm_create_default_network_bridge: "virbr0"
+vm_create_hostname: "{{ omit }}"
