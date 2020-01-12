@@ -15,6 +15,3 @@
 
 - name: Define VM
   import_tasks: define.yml
-
-- name: Add VM to network
-  import_tasks: network.yml
